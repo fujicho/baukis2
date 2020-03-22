@@ -15,7 +15,7 @@ class Staff::SessionsController < Staff::Base
         StaffMember.find_by("LOWER(email) = ?", @form.email.downcase)
     end
     if staff_member
-      session[:staff_member_id] = staff_member.staff_member_id
+      session[:staff_member_id] = staff_member.id
       redirect_to :staff_root
     else
       render action: "new"

@@ -1,7 +1,7 @@
 module ErrorHandlers
   extend ActiveSupport::Concern
 
-  include do
+  included do
     rescue_from StandardError, with: :rescue500
     rescue_from ApplicationController::Forbidden, with: :rescue403
     rescue_from ApplicationController::IpAddressRejected, with: :rescue403
@@ -20,5 +20,5 @@ module ErrorHandlers
   private def rescue500(e)
     render "errors/internal_server_error", status: 500
   end
-  
+
 end

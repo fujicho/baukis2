@@ -6,4 +6,5 @@ StaffMember.create!(
   given_name_kana: "タロウ",
   password: "password",
   start_date: Date.today
+  
 )

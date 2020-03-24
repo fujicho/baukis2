@@ -12,7 +12,7 @@ class Staff::SessionsController < Staff::Base
     @form = Staff::LoginForm.new(params[:staff_login_form])
     if @form.email.present?
         staff_member =
-        StaffMember.find_by("LOWER(email) = ?", @form.email.downcase)
+        .find_by("LOWER(email) = ?", @form.email.downcase)
     end
     if Staff::Authenticator.new(staff_member).authenticate(@form.password)
       session[:staff_member_id] = staff_member.id

@@ -1,7 +1,7 @@
 class Admin::SessionsController < Admin::Base
   def new
     if current_administrator
-      redirect_to :staff_root
+      redirect_to :admin_root
     else
       @form = Admin::LoginForm.new
       render action: "new"
@@ -30,7 +30,7 @@ class Admin::SessionsController < Admin::Base
   end
 
   def destroy
-    session.delete(:administrtor_id)
+    session.delete(:administrator_id)
     flash.notice = "ログアウトしました。"
     redirect_to :admin_root
   end

@@ -39,12 +39,6 @@ class Admin::StaffMembersController < Admin::Base
     end
   end
 
-  private def authorize
-    unless current_administrator
-      flash.alert = "管理者としてログインしてください。"
-      redirect_to :admin_login
-    end
-  end
   private def staff_member_params
     params.require(:staff_member).permit(
       :email, :password, :family_name, :given_name,

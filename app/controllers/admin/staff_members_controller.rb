@@ -1,5 +1,8 @@
 class Admin::StaffMembersController < Admin::Base
   def index
+    unless current_administrator
+      redirect_to :admin_login
+    end
     @staff_members = StaffMember.order(:family_name_kana, :given_name_kana)
   end
 

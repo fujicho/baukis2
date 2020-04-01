@@ -1,4 +1,5 @@
 class Staff::Base < ApplicationController
+  before_action :authorize
 
 private  def current_staff_member
     if session[:staff_member_id]
@@ -7,4 +8,11 @@ private  def current_staff_member
   end
 
   helper_method :current_staff_member
+
+  private def authorize
+    unless current_staff_member
+      flash.alert = "職員として登録してください。"
+      redirect_to :staff_login
+    end
+  end
 end

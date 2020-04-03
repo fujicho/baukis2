@@ -9,6 +9,5 @@ class CreateStaffEvents < ActiveRecord::Migration[6.0]
 
     add_index :staff_events, :created_at
     add_index :staff_events,[ :staff_member_id, :created_at]
-    end
   end
 end

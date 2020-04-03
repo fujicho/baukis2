@@ -22,17 +22,17 @@ class Admin::Base < ApplicationController
   private def check_account
     if current_administrator && current_administrator.suspended?
       session.delete(:administrator_id)
-      flash.alert
+      flash.alert = "アカウントが無効になりました"
       redirect_to :admin_root
     end
   end
 
-  TIMEOUT = 60.mintues
+  TIMEOUT = 60.minutes
 
   private def check_timeout
     if current_administrator
-      if session[:admin_last_access_time] >=TIMEOUT.admin_login
-        session[:admin_last_access_time] = Time.current_administrator
+      if session[:admin_last_access_time] >=TIMEOUT.ago
+        session[:admin_last_access_time] = Time.current
       else
         session.delete(:administrator_id)
         flash.alert = "セッションがタイムアウトしました。"

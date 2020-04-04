@@ -31,7 +31,7 @@ class Admin::Base < ApplicationController
 
   private def check_timeout
     if current_administrator
-      if session[:admin_last_access_time] >=TIMEOUT.ago
+      if session[:admin_last_access_time] >= TIMEOUT.ago
         session[:admin_last_access_time] = Time.current
       else
         session.delete(:administrator_id)

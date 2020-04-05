@@ -37,6 +37,9 @@ RSpec.describe StaffMember, type: :model do
       expect(member.family_name_kana).to eq("テスト")
     end
 
-
+    example "family_name_kanaに含まれる半角カナを全角カナに変換" do
+      member = create(:staff_member, family_name_kana: "ﾃｽﾄ")
+      expect(member.family_name_kana).to eq("テスト")
+    end
   end
 end

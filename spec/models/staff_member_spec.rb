@@ -15,4 +15,11 @@ RSpec.describe StaffMember, type: :model do
       expect(member.hashed_password).to be_nil
     end
   end
+
+  describe "値の正規化" do
+    example "email前後の空白を除去" do
+      member = create(:staff_member, email: " test@example.com ")
+      expect(member.email).to eq("test@example.com")
+    end
+  end
 end

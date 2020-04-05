@@ -32,6 +32,11 @@ RSpec.describe StaffMember, type: :model do
       expect(member.email).to eq("test@example.com")
     end
 
-    
+    example "family_name_kanaに含まれるひらがなをカタカナに変換" do
+      member = create(:staff_member, family_name_kana: "てすと")
+      expect(member.family_name_kana).to eq("テスト")
+    end
+
+
   end
 end

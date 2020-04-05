@@ -21,5 +21,17 @@ RSpec.describe StaffMember, type: :model do
       member = create(:staff_member, email: " test@example.com ")
       expect(member.email).to eq("test@example.com")
     end
+
+    example "emailに含まれる全角英数字記号を半角に変換" do
+      member = create(:staff_member, email: "ｔｅｓｔ＠ｅｘａｍｐｌｅ．ｃｏｍ")
+      expect(member.email).to eq("test@example.com")
+    end
+
+    example "email前後の全角スペースを除去" do
+      member = create(:staff_member, email: "\u{3000}test@example.com\u{3000}")
+      expect(member.email).to eq("test@example.com")
+    end
+
+    
   end
 end

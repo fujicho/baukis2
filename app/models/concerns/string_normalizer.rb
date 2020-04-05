@@ -11,6 +11,3 @@ module StringNormalizer
     NKF.nkf("-W -w -z1 --katakana",text).strip if text
   end
 end
-
-
-

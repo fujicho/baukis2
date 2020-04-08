@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      staff_member:
+        email: メールアドレス
+        family_name: 氏名(性)
+        given_name: 氏名(名)
+        family_name_kana: フリガナ(性)
+        given_name_kana: フリガナ(名)
+        start_date: 開始日
+        end_date: 終了日

@@ -43,3 +43,22 @@ company_names = %w(fujiko ABC XYZ)
       birthday: 60.years.ago.advance(seconds: rand(40.years)).to_date,
       gender: m < 5 ? "male" : "female"
     )
+    c.create_home_address!(
+      postal_code: sprintf("%07d", rand(10000000)),
+      prefecture: Address::PREFECTURE_NAMES.sample,
+      city: city_names.sample,
+      address1: "天沼4-5-6"
+      address2: "コーポpokopoko1601"
+    )
+    if m % 3 == 0
+      c.create_work_address!(
+        postal_code: sprintf("%07d", rand(10000000)),
+        prefecture: Address::PREFECTURE_NAMES.sample,
+        city: city_names.sample,
+        address1: "東町4"
+        address2: "へのへのビル9F"
+        company_name: company_names.sample
+      )
+    end
+  end
+end

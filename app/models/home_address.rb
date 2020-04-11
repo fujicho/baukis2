@@ -1,3 +1,2 @@
 class HomeAddress < Address
-  
 end

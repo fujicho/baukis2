@@ -29,9 +29,9 @@ given_names = %w{
 company_names = %w(fujiko ABC XYZ)
 
 10.times do |n|
-  10.times do |n|
+  10.times do |m|
     fn = family_names[n].split(":")
-    gn = given_names[n].split(":")
+    gn = given_names[m].split(":")
 
     c = Customer.create!(
       email: "#{fn[2]}.#{gn[2]}@example.jp",
@@ -47,16 +47,16 @@ company_names = %w(fujiko ABC XYZ)
       postal_code: sprintf("%07d", rand(10000000)),
       prefecture: Address::PREFECTURE_NAMES.sample,
       city: city_names.sample,
-      address1: "天沼4-5-6"
-      address2: "コーポpokopoko1601"
+      address1: "天沼4-5-6",
+      address2: "コーポぽこぽこ"
     )
     if m % 3 == 0
       c.create_work_address!(
         postal_code: sprintf("%07d", rand(10000000)),
         prefecture: Address::PREFECTURE_NAMES.sample,
         city: city_names.sample,
-        address1: "東町4"
-        address2: "へのへのビル9F"
+        address1: "東町4",
+        address2: "へのへのビル9F",
         company_name: company_names.sample
       )
     end

@@ -44,6 +44,6 @@ class Staff::CustomersController < Staff::Base
     customer = Customer.find(params[:id])
     customer.destroy!
     flash.notice = "顧客アカウントを削除しました。"
-    
+    redirect_to :staff_customers
   end
 end

@@ -2,7 +2,7 @@ class Staff::CustomerForm
   include ActiveModel::Model
 
   attr_accessor :customer
-  delegate :persisted?, to: :customer
+  delegate :persisted?, :save, to: :customer
 
   def initialize(customer = nil)
     @customer = customer

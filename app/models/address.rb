@@ -22,8 +22,7 @@ class Address < ApplicationRecord
     沖縄県
     日本国外
     )
-  end
 
   validates :postal_code, format: { with: /\A\d{7}\z/, allow_blank: true }
   validates :prefecture, inclusion: {in: PREFECTURE_NAMES, allow_blank: true}
-
+end

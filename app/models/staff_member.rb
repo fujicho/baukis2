@@ -1,18 +1,10 @@
 class StaffMember < ApplicationRecord
-  include StringNormalizer
+  include EmailHolder
   include PersonalNameHolder
+  include PasswordHolder
 
   has_many :events, class_name: "StaffEvent",dependent: :destroy
 
-  before_validation do
-    self.email = normalize_as_email(email)
-  end
-
-  KATAKANA_REGEXP = /\A[\p{katakana}\u{30fc}]+\z/
-  HUMAN_NAME_REGEXP = /\A[\p{han}\p{hiragana}\p{katakana}\u{30fc}A-Za-z]+\z/
-
-  validates :email, presence: true, "valid_email_2/email": true,
-    uniqueness: { case_sensitive: false }
   validates :start_date,presence: true, date: {
     after_or_equal_to: Date.new(2000, 1, 1),
     before: -> (obj){ 1.year.from_now.to_date},
@@ -24,14 +16,6 @@ class StaffMember < ApplicationRecord
     before: -> (obj){ 1.year.from_now.to_date},
     allow_blank: true
   }
-
-  def password=(raw_password)
-    if raw_password.kind_of?(String)
-      self.hashed_password = BCrypt::Password.create(raw_password)
-    elsif raw_password.nil?
-      self.hashed_password = nil
-    end
-  end
 
   def active?
     !suspended? && start_date <= Date.today &&

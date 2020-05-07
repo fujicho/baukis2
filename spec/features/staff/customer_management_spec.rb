@@ -16,10 +16,10 @@ feature "職員による顧客管理" do
     
     fill_in "メールアドレス",with: "test@example.jp"
     within("fieldset#home-address-fields")do
-      fill_in "郵便番号", with "9999999"
+      fill_in "郵便番号", with: "9999999"
     end
     within("fieldset#work-address-fields")do
-      fill_in "会社名", with "テスト"
+      fill_in "会社名", with: "テスト"
     end
     click_button "更新"
 

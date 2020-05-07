@@ -33,7 +33,7 @@ class Staff::CustomersController < Staff::Base
     @customer_form.assign_attributes(params[:form])
     if @customer_form.save
       flash.notice = "顧客情報を更新しました。"
-      redirect_to action "index"
+      redirect_to action: "index"
     else
       flash.now.alert = "入力に誤りがあります、"
       render action: "edit"

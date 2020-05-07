@@ -6,5 +6,5 @@ class AddressFormPresenter < FormPresenter
       m.span "(7桁の半角数字で入力してください。",class: "notes"
       m << error_messages_for(name)
     end
-  end 
+  end
 end

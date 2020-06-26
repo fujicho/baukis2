@@ -8,8 +8,8 @@ class Staff::CustomersController < Staff::Base
     params[:search]&.try(:permit, [
       :family_name_kana, :given_name_kana,
       :birth_year, :birth_month, :birth_mday,
-      :address_type, :prefecture, :city, :phone_number
-    ])
+      :address_type, :prefecture, :city, :phone_number,
+      :gender])
   end
 
   def show

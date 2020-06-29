@@ -1,4 +1,4 @@
-class Admin::LoginForm
+class Customer::LoginForm
   include ActiveModel::Model
 
   attr_accessor :email, :password

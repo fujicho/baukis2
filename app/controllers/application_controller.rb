@@ -6,23 +6,11 @@ class ApplicationController < ActionController::Base
 
   include ErrorHandlers if Rails.env.production?
 
-  private
-  
-  def set_layout
-    if params[:controller].match(%r{\A(staff|admin|cutomer)/})
+  private def set_layout
+    if params[:controller].match(%r{\A(staff|admin|customer)/})
       Regexp.last_match[1]
     else
-      "customer" 
-    end   
-  end
-
-
-  def current_staff_member
-    if session[:staff_member_id]
-      @current_staff_member ||= StaffMember.find_by(id: session[:staff_member_id])
+      "customer"
     end
   end
-
-  helper_method :current_staff_member
-
 end

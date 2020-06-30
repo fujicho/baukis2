@@ -3,7 +3,7 @@
     full_name = @staff_member.family_name + @staff_member.given_name
     @title = "#{full_name}さんのログイン・ログアウト記録"
   else
-    @title= "職員のログイン・ログアウト記録"
+    @title = "職員のログイン・ログアウト記録"
   end
 %>
 <h1><%= @title %></h1>
@@ -27,11 +27,11 @@
     <% if @events.empty? %>
       <tr>
         <%= content_tag(:td, "記録がありません",
-          colspan: @staff_member ? 2 : 3, style: "text-align: center")%>
+          colspan: @staff_member ? 2 : 3, style: "text-align: center") %>
       </tr>
-      <% end %>
+    <% end %>
   </table>
-  
+
   <%= paginate @events %>
 
   <div class="links">

@@ -1,4 +1,4 @@
-city_names = %W(青巻市 赤巻市 黄巻市)
+city_names = %w(青巻市 赤巻市 黄巻市)
 
 family_names = %w{
   佐藤:サトウ:sato
@@ -18,15 +18,15 @@ given_names = %w{
   二郎:ジロウ:jiro
   三郎:サブロウ:saburo
   四郎:シロウ:shiro
-  五朗:ゴロウ:goro
+  五郎:ゴロウ:goro
   松子:マツコ:matsuko
   竹子:タケコ:takeko
   梅子:ウメコ:umeko
-  鶴子:ツルコ:turuko
+  鶴子:ツルコ:tsuruko
   亀子:カメコ:kameko
 }
 
-company_names = %w(fujiko ABC XYZ)
+company_names = %w(OIAX ABC XYZ)
 
 10.times do |n|
   10.times do |m|
@@ -50,8 +50,8 @@ company_names = %w(fujiko ABC XYZ)
       postal_code: sprintf("%07d", rand(10000000)),
       prefecture: Address::PREFECTURE_NAMES.sample,
       city: city_names.sample,
-      address1: "天沼4-5-6",
-      address2: "コーポぽこぽこ"
+      address1: "開発1-2-3",
+      address2: "レイルズハイツ301号室"
     )
     if m % 10 == 0
       c.home_address.phones.create!(number: sprintf("03-0000-%04d", n))
@@ -61,8 +61,8 @@ company_names = %w(fujiko ABC XYZ)
         postal_code: sprintf("%07d", rand(10000000)),
         prefecture: Address::PREFECTURE_NAMES.sample,
         city: city_names.sample,
-        address1: "東町4",
-        address2: "へのへのビル9F",
+        address1: "試験4-5-6",
+        address2: "ルビービル2F",
         company_name: company_names.sample
       )
     end

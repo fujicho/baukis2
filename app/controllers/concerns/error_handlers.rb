@@ -21,9 +21,8 @@ module ErrorHandlers
   private def rescue404(e)
     render "errors/not_found", status: 404
   end
-  
+
   private def rescue500(e)
     render "errors/internal_server_error", status: 500
   end
-
 end

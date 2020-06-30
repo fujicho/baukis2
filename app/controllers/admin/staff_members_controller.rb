@@ -1,13 +1,12 @@
 class Admin::StaffMembersController < Admin::Base
-  before_action :authorize
-
   def index
-    @staff_members = StaffMember.order(:family_name_kana, :given_name_kana).page(params[:page])
+    @staff_members = StaffMember.order(:family_name_kana, :given_name_kana)
+      .page(params[:page])
   end
 
   def show
     staff_member = StaffMember.find(params[:id])
-    redirect_to [:edit, :admin, staff_member]
+    redirect_to [ :edit, :admin, staff_member ]
   end
 
   def new
@@ -43,7 +42,7 @@ class Admin::StaffMembersController < Admin::Base
     params.require(:staff_member).permit(
       :email, :password, :family_name, :given_name,
       :family_name_kana, :given_name_kana,
-      :start_date, :end_date, :supended
+      :start_date, :end_date, :suspended
     )
   end
 

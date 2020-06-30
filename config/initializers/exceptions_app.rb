@@ -7,7 +7,7 @@ Rails.application.configure do
       when "/404"; :not_found
       when "/422"; :unprocessable_entity
       else; :internal_server_error
-    end
+      end
 
     ErrorsController.action(action).call(env)
   end

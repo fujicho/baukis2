@@ -5,11 +5,12 @@ class Staff::CustomersController < Staff::Base
   end
 
   private def search_params
-    params[:search]&.try(:permit, [
+    params[:search].try(:permit, [
       :family_name_kana, :given_name_kana,
       :birth_year, :birth_month, :birth_mday,
       :address_type, :prefecture, :city, :phone_number,
-      :gender, :postal_code, :last_four_digits_of_phone_number])
+      :gender, :postal_code, :last_four_digits_of_phone_number
+    ])
   end
 
   def show
@@ -43,7 +44,7 @@ class Staff::CustomersController < Staff::Base
       flash.notice = "顧客情報を更新しました。"
       redirect_to action: "index"
     else
-      flash.now.alert = "入力に誤りがあります、"
+      flash.now.alert = "入力に誤りがあります。"
       render action: "edit"
     end
   end

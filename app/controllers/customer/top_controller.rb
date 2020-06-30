@@ -1,6 +1,4 @@
-class Customer::TopController < Customer::Base
-  skip_before_action :authorize
-  
+class Customer::TopController < ApplicationController
   def index
     render action: "index"
   end

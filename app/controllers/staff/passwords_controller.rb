@@ -4,12 +4,12 @@ class Staff::PasswordsController < Staff::Base
   end
 
   def edit
-    @change_password_form = 
+    @change_password_form =
       Staff::ChangePasswordForm.new(object: current_staff_member)
   end
 
   def update
-    @change_password_form = Staff::ChangePasswordForm.new(staff_members_params)
+    @change_password_form = Staff::ChangePasswordForm.new(staff_member_params)
     @change_password_form.object = current_staff_member
     if @change_password_form.save
       flash.notice = "パスワードを変更しました。"
@@ -20,7 +20,7 @@ class Staff::PasswordsController < Staff::Base
     end
   end
 
-  private def staff_members_params
+  private def staff_member_params
     params.require(:staff_change_password_form).permit(
       :current_password, :new_password, :new_password_confirmation
     )

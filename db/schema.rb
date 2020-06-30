@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_114930) do
+ActiveRecord::Schema.define(version: 2020_01_03_071007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,9 +60,9 @@ ActiveRecord::Schema.define(version: 2020_06_26_114930) do
     t.integer "birth_month"
     t.integer "birth_mday"
     t.index "lower((email)::text)", name: "index_customers_on_LOWER_email", unique: true
+    t.index ["birth_mday", "family_name_kana", "given_name_kana"], name: "index_customers_on_birth_mday_and_furigana"
     t.index ["birth_mday", "given_name_kana"], name: "index_customers_on_birth_mday_and_given_name_kana"
     t.index ["birth_month", "birth_mday"], name: "index_customers_on_birth_month_and_birth_mday"
-    t.index ["birth_month", "family_name_kana", "given_name_kana"], name: "index_customers_on_birth_mday_and_furigana"
     t.index ["birth_month", "family_name_kana", "given_name_kana"], name: "index_customers_on_birth_month_and_furigana"
     t.index ["birth_month", "given_name_kana"], name: "index_customers_on_birth_month_and_given_name_kana"
     t.index ["birth_year", "birth_month", "birth_mday"], name: "index_customers_on_birth_year_and_birth_month_and_birth_mday"

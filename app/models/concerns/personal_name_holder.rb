@@ -1,7 +1,7 @@
 module PersonalNameHolder
   extend ActiveSupport::Concern
 
-  HUMAN_NAME_REGEXP = /\A[\p{han}\p{hiragana}\p{katakana}\u{30fc}\p{alpha}]+\z/
+  HUMAN_NAME_REGEXP = /\A[\p{han}\p{hiragana}\p{katakana}\u{30fc}A-Za-z]+\z/
   KATAKANA_REGEXP = /\A[\p{katakana}\u{30fc}]+\z/
 
   included do
@@ -15,8 +15,8 @@ module PersonalNameHolder
     end
 
     validates :family_name, :given_name, presence: true,
-      format: { with: HUMAN_NAME_REGEXP, allow_blank:true}
+      format: { with: HUMAN_NAME_REGEXP, allow_blank: true }
     validates :family_name_kana, :given_name_kana, presence: true,
-      format: { with: KATAKANA_REGEXP, allow_blank:true}
+      format: { with: KATAKANA_REGEXP, allow_blank: true }
   end
 end

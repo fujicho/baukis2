@@ -1,13 +1,13 @@
-@import "./colors";
-@import "./dimensions";
+@import "colors";
+@import "dimensions";
 
-nav.pagination{
+nav.pagination {
   margin: $moderate 0;
   padding: $moderate 0;
   display: inline-block;
   border-top: solid $very_light_gray 1px;
   border-bottom: solid $very_light_gray 1px;
-  span.page, span.first,span.prev,span.next,span.last{
+  span.page, span.first, span.prev, span.next, span.last {
     display: inline-block;
     background-color: $light_gray;
     padding: $narrow $moderate;
@@ -15,14 +15,14 @@ nav.pagination{
       text-decoration: none;
     }
   }
-  span.current{
+  span.current {
     background-color: $dark_gray;
     color: $light_gray;
   }
-  span.disabled{
+  span.disabled {
     color: $gray;
   }
-  span.gap{
+  span.gap {
     background-color: transparent;
   }
 }

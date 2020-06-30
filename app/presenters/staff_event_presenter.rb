@@ -6,7 +6,7 @@ class StaffEventPresenter < ModelPresenter
       unless view_context.instance_variable_get(:@staff_member)
         m.td do
           m << link_to(member.family_name + member.given_name,
-          [:admin, member, :staff_events ])
+           [ :admin, member, :staff_events ])
         end
       end
       m.td description

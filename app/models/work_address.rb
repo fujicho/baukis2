@@ -4,5 +4,5 @@ class WorkAddress < Address
     self.division_name = normalize_as_name(division_name)
   end
 
-  validates :company_name,presence: true
+  validates :company_name, presence: true
 end

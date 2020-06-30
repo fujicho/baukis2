@@ -3,9 +3,9 @@ class CreatePhones < ActiveRecord::Migration[6.0]
     create_table :phones do |t|
       t.references :customer, null: false
       t.references :address
-      t.string :number, null: false
-      t.string :number_for_index, null: false
-      t.boolean :primary, null: false, default: false
+      t.string :number, null: false # 電話番号
+      t.string :number_for_index, null: false # 検索用電話番号
+      t.boolean :primary, null: false, default: false # 優先フラグ
 
       t.timestamps
     end

@@ -10,7 +10,7 @@
 
   <%= paginate @customers %>
 
-  <table class= "listing">
+  <table class="listing">
     <tr>
       <th>氏名</th>
       <th>フリガナ</th>
@@ -20,18 +20,18 @@
       <th>アクション</th>
     </tr>
     <% @customers.each do |c| %>
-      <% p = CustomerPresenter.new(c,self)  %>
+      <% p = CustomerPresenter.new(c, self) %>
       <tr>
-        <td><%=  p.full_name %></td>
-        <td><%=  p.full_name_kana %></td>
+        <td><%= p.full_name %></td>
+        <td><%= p.full_name_kana %></td>
         <td class="email"><%= p.email %></td>
         <td class="date"><%= p.birthday %></td>
         <td><%= p.gender %></td>
         <td class="actions">
-          <%= link_to "詳細", [:staff, c] %> |
-          <%= link_to "編集",[:edit, :staff, c] %> |
-          <%= link_to "削除", [:staff, c],method: :delete,
-            data: { confirm: "本当に削除しますか？" }%>
+          <%= link_to "詳細", [ :staff, c ] %> |
+          <%= link_to "編集", [ :edit, :staff, c ] %> |
+          <%= link_to "削除", [ :staff, c ], method: :delete,
+            data: { confirm: "本当に削除しますか？" } %>
         </td>
       </tr>
     <% end %>

@@ -1,5 +1,5 @@
 ja:
-  activerecord: 
+  activerecord:
     attributes:
       address:
         postal_code: 郵便番号

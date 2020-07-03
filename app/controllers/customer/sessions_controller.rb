@@ -20,7 +20,6 @@ class Customer::SessionsController < Customer::Base
         session[:customer_id] = customer.id
         flash.notice = "ログインしました。"
         redirect_to :customer_root
-      end
     else
       flash.now.alert = "メールアドレスまたはパスワードが正しくありません。"
       render action: "new"

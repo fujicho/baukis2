@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
   class IpAddressRejected < ActionController::ActionControllerError; end
 
   include ErrorHandlers if Rails.env.production?
-  recue_from Forbidden, with: :rescue403
-  recue_from IpAddressRejected, with: :rescue403
+  rescue_from Forbidden, with: :rescue403
+  rescue_from IpAddressRejected, with: :rescue403
 
   private def set_layout
     if params[:controller].match(%r{\A(staff|admin|customer)/})

@@ -10,13 +10,13 @@ class ProgramPresenter < ModelPresenter
     object.application_end_time.strftime("%Y-%m-%d %H:%M")
   end
 
-  def max_number_participants
+  def max_number_of_participants
     if object.max_number_of_participants
       number_with_delimiter(object.max_number_of_participants)
     end
   end
 
-  def min_number_participants
+  def min_number_of_participants
     if object.min_number_of_participants
       number_with_delimiter(object.min_number_of_participants)
     end

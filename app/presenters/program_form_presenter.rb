@@ -6,5 +6,15 @@ class ProgramFormPresenter < FormPresenter
     m.span " (800文字以内) ", class: "instruction", style: "float: right"
   end
 
-  
+  def datetime_field_block(name, label_text, options = {})
+    instruction = options.delete(:instructon)
+    markup(:div, class: "input-block") do |m|
+      m << decorated_label("#{name}_date", label_text, options)
+      m << date_field("#{name}_date", options)
+      m << form_builder.select("#{name}_hour", hour_options)
+      m << ":"
+      m << form_builder.select("#{name}_minute", minute_options)
+      m.span " (#{instruction}) ",class: "instruction" if instruction
+    end
+  end
 end

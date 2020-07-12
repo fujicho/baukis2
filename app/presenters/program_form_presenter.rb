@@ -17,4 +17,10 @@ class ProgramFormPresenter < FormPresenter
       m.span " (#{instruction}) ",class: "instruction" if instruction
     end
   end
+
+  private def hour_options
+    (0..23).map { |h| [ "%02d" % h, h ]}
+  end
+
+  
 end

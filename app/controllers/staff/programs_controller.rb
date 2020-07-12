@@ -41,5 +41,18 @@ class Staff::ProgramsController < Staff::Base
     end
   end
 
-  
+  private def program_params
+    params.require(:program).permit([
+      :title,
+      :application_start_date,
+      :application_start_hour,
+      :application_start_minute,
+      :application_end_date,
+      :application_end_hour,
+      :application_end_minute,
+      :min_number_of_participants,
+      :max_number_of_participants,
+      :description
+    ])
+  end
 end

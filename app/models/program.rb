@@ -52,4 +52,25 @@ class Program < ApplicationRecord
       )
     end
   end
+
+  validates :title, presence: true, length: { maximum: 32 }
+  validates :description, presence: true, length: { maximum: 800 }
+  validates :application_start_time, date: {
+    after_or_equal_to: Time.zone.local(2000, 1, 1),
+    brfore: -> (obj) { 1.year,from_now},
+    allow_blank: true
+  }
+  validates :application_end_time, date: {
+    after: :application_start_time,
+    brfore: -> (obj) { obj.application_start_time.advance(days: 90) },
+    allow_blank: true,
+    if: -> (obj) { obj.application_start_time }
+  }
+  validate do
+    if min_number_of_participants && max_number_of_participants &&
+        min_number_of_participants > max_number_of_participants
+      erros.add(:max_number_of_participants, :less_than_min_number)
+    end
+  end
+
 end

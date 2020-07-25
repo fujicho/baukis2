@@ -1,5 +1,5 @@
 class Staff::EntriesForm
-  include ActiveModel::ActiveModel
+  include ActiveModel::Model
   
   attr_accessor :program, :approved, :not_approved, :canceled, :not_canceled
 

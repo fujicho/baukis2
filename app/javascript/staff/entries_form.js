@@ -1,4 +1,4 @@
-$(document).on("turbolonks:load", () => {
+$(document).on("turbolinks:load", () => {
   $("div.button-wrapper").on("click", "button#update-entries-button", () => {
     approved = []
     not_approved = []

@@ -42,7 +42,7 @@ rows += 1 unless entries.size % cols == 0
 <div class="button-wrapper">
   <%= form_with model: Staff::EntriesForm.new(@program), scope: "form",
     url: [ :update_all, :staff, @program, :entries ],
-    html: { method: :patch do |f|}%>
+    html: { method: :patch } do |f|%>
     <%= f.hidden_field :approved %>
     <%= f.hidden_field :not_approved %>
     <%= f.hidden_field :canceled %>

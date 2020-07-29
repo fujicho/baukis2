@@ -37,7 +37,7 @@ class ProgramPresenter < ModelPresenter
       status = program_status
       button_to button_label_text(status), [ :customer, object, :entry ],
         disabled: status != :available, method: :post,
-        data: { confirm: "本当に申し込みますか？"}
+        data: { confirm: "本当に申し込みますか？ " }
     end
   end
 
@@ -47,7 +47,7 @@ class ProgramPresenter < ModelPresenter
     elsif object.max_number_of_participants.try(:<=, object.applicants.count)
       :full
     else
-      :avaliable
+      :available
     end
   end
 

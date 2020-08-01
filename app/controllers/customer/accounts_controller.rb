@@ -4,7 +4,7 @@ class Customer::AccountsController < Customer::Base
   end
 
   def edit
-    @customer = Customer::AccountForm.new(current_customer)
+    @customer_form = Customer::AccountForm.new(current_customer)
   end
 
   def update

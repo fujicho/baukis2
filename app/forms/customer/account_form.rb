@@ -1,4 +1,4 @@
-class Staff::AccountForm
+class Customer::AccountForm
   include ActiveModel::Model
 
   attr_accessor :customer, :inputs_home_address, :inputs_work_address

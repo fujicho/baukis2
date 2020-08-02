@@ -17,7 +17,7 @@ class ConfirmingFormPresenter
     markup(:div) do |m|
       m << decorated_label(name, label_text)
       if options[:disabled]
-        m.div(object.sent(name), class: "filed-value readonly")
+        m.div(object.send(name), class: "filed-value readonly")
       else
         m.div(object.sent(name), class: "field-value")
         m << hidden_field(name, options)
@@ -28,7 +28,7 @@ class ConfirmingFormPresenter
   def date_field_block(name, label_text, options = {})
     markup(:div) do |m|
       m << decorated_label(name, label_text)
-      m.div(object.sand(name), class: "field_value")
+      m.div(object.send(name), class: "field_value")
       m << hidden_field(name, options)
     end
   end

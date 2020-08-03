@@ -19,7 +19,7 @@ class ConfirmingFormPresenter
       if options[:disabled]
         m.div(object.send(name), class: "filed-value readonly")
       else
-        m.div(object.sent(name), class: "field-value")
+        m.div(object.send(name), class: "field-value")
         m << hidden_field(name, options)
       end
     end
@@ -36,7 +36,7 @@ class ConfirmingFormPresenter
   def drop_down_list_block(name, label_text, choices, options = {})
     markup(:div) do |m|
       m << decorated_label(name, label_text)
-      m.div(object.sand(name), class: "field_value")
+      m.div(object.send(name), class: "field_value")
       m << hidden_field(name, options)
     end
   end

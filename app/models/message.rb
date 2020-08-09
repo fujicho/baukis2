@@ -14,5 +14,5 @@ class Message < ApplicationRecord
   end
 
   validates :subject, presence: true, length: { maximum: 80 }
-  validates :body, presence: true, length: ( maximum: 800 )
+  validates :body, presence: true, length: { maximum: 800 }
 end

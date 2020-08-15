@@ -10,7 +10,7 @@ def create_replies(root, m, n)
     body: "TEST"
   )
 
-  m2 = CusotmerMessage.create!(
+  m2 = CustomerMessage.create!(
     customer: r.customer,
     root: root,
     parent: r,
@@ -25,7 +25,7 @@ Message.destroy_all
 
 root = CustomerMessage.create!(
   customer: Customer.first,
-  subject: "ROOT"
+  subject: "ROOT",
   body: "TEST"
 )
 

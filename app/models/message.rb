@@ -5,6 +5,8 @@ class Message < ApplicationRecord
     optional: true
   belongs_to :parent, class_name: "Message", foreign_key: "parent_id",
     optional: true
+  has_many :message_tag_links, dependent: :destroy
+  has_many :tags, -> { order(:value) }, trhough: :message_tag_links
 
   before_validation do
     if parent

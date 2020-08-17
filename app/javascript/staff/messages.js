@@ -1,10 +1,10 @@
-function update_number_of_unprocessed_messages(){
+function update_number_of_unprocessed_messages() {
   const elem = $("#number-of-unprocessed-messages")
-  $.get(elem.data("path"),(data) => {
-    if (data === "0")elem.text("")
+  $.get(elem.data("path"), (data) => {
+    if (data == "0") elem.text("")
     else elem.text("(" + data + ")")
   })
-  .fail(() => window.location.href = "/login")
+  .fail(() => window.location.href = "/")
 }
 
 $(document).ready(() => {

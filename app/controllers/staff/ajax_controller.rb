@@ -22,7 +22,7 @@ class Staff::AjaxController < ApplicationController
     message.remove_tag(params[:label])
     render plain: "ok"
   end
-  
+
   private def check_source_ip_address
     unless AllowedSource.include?("staff", request.ip)
       render plain: "Forbidden", status: 403
@@ -46,5 +46,6 @@ class Staff::AjaxController < ApplicationController
            session[:last_access_time] >= Staff::Base::TIMEOUT.ago
       session.delete(:staff_member_id)
       render plain: "Forbidden", status: 403
+    end
   end
 end

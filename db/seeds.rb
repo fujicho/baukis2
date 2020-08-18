@@ -1,6 +1,6 @@
 table_names = %w(staff_members administrators staff_events customers
   programs entries
-  programs messages
+  programs messages tags
 )
 
 table_names.each do |table_name|

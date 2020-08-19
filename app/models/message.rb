@@ -22,7 +22,7 @@ class Message < ApplicationRecord
   scope :deleted, -> { where(deleted: true) }
   scope :sorted, -> { order(created_at: :desc) }
 
-  scope :tagged_as, -> { order(created_at: :desc) }
+  scope :tagged_as, -> (tag_id) do
     if tag_id
       joins(:message_tag_links).where("message_tag_links.tag_id" => tag_id)
     else

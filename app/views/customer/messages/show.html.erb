@@ -1,0 +1,11 @@
+<% @title = "メッセージ詳細"  %>
+<h1><%= @title %></h1>
+
+<div class="table-wrapper">
+  <table class="attributes">
+    <% p = MessagePresenter.new(@message, self)  %>
+    <tr><th>送信者</th><td class="date"><%= p.created_at %></td></tr>
+  </table>
+
+  <div class="body"><%= p.formatted_body %></div>
+</div>

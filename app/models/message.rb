@@ -41,6 +41,7 @@ class Message < ApplicationRecord
 
   def add_tag(label)
     self.class.transaction do
+      HashLock.acquire("tags", "value", label)
       tag = Tag.find_by(value: label)
       tag ||= Tag.create!(value: label)
       unless message_tag_links.where(tag_id: tag.id).exists?
